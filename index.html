@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All-in-One Image Editor Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+  <h2>All-in-One Image Studio</h2>
+  <div class="card">
+    <input type="file" id="fileInput" accept="image/*" />
+    <div id="status">Pilih gambar untuk mulai mengedit.</div>
+    <div class="row">
+      <button type="button" class="gray" id="btnReset">Reset Asli</button>
+      <button type="button" id="btnAutoBg">Hapus BG Otomatis</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>Pilih Alat Sentuh Layar:</label>
+    <div class="mode-row">
+      <button type="button" class="mode-btn active" id="mTap">Ketuk BG</button>
+      <button type="button" class="mode-btn" id="mErase">Kuas Hapus</button>
+      <button type="button" class="mode-btn" id="mRestore">Pulihkan</button>
+      <button type="button" class="mode-btn" id="mObj">Pilih Objek</button>
+    </div>
+
+    <div id="boxTol">
+      <label>Toleransi Warna Ketuk: <span id="tolVal">35</span></label>
+      <input type="range" id="tolRange" min="5" max="120" value="35" />
+    </div>
+
+    <div id="boxBrush" class="hidden">
+      <label>Ukuran Kuas: <span id="brushVal">25</span> px</label>
+      <input type="range" id="brushSize" min="5" max="80" value="25" />
+      <div id="boxObjAction" class="row hidden">
+        <button type="button" class="gray" id="btnClearSel">Batal Pilih</button>
+        <button type="button" class="red" id="btnExecObj">Hapus Objek Terpilih</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>Perbesar Resolusi (Upscale):</label>
+    <div class="row">
+      <select id="scaleSelect">
+        <option value="2">2x (Adobe Stock)</option>
+        <option value="3">3x (Tinggi)</option>
+        <option value="4">4x (Maksimal)</option>
+      </select>
+      <button type="button" id="btnUpscale">Perbesar Gambar</button>
+    </div>
+    <div class="row" style="margin-top:8px;">
+      <button type="button" class="green" id="btnSavePng">Simpan PNG</button>
+      <button type="button" class="green" id="btnSaveJpg">Simpan JPG</button>
+    </div>
+  </div>
+
+  <div class="card canvas-bg">
+    <canvas id="canvas"></canvas>
+  </div>
+</div>
+<script src="core.js"></script>
+<script src="tools.js"></script>
+</body>
+</html>
